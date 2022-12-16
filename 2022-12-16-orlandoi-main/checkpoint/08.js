@@ -28,6 +28,20 @@ const { LinkedList } = require("../DS");
 
 LinkedList.prototype.sliceRooms = function (firstIndex, secondIndex) {
   // Tu código aquí:
+  let lis = new LinkedList()
+  if(this.search(firstIndex) !== firstIndex || this.search(secondIndex) !== secondIndex) return false
+  let current = this.head
+  while(current){
+    if(current.value === firstIndex){
+      while(current.next && current.next.value !== secondIndex){
+        lis.add(current.next.value)
+        current = current.next
+    }
+    }
+    current = current.next
+  }
+  return lis
+
 }
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
